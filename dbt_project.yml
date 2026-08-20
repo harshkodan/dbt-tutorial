@@ -1,4 +1,4 @@
-name: jaffle_shop
+name: netflix_analytics
 
 profile: jaffle_shop
 
@@ -9,16 +9,18 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-seeds:
-  # Builds seeds into '<your_schema_name>_raw'
-  jaffle_shop:
-    +schema: raw
-
 models:
-  jaffle_shop:
+  netflix_analytics:
     +static_analysis: strict
-    # Materialize staging models as views, and marts as tables
+
     staging:
+      +schema: netflix_silver
       +materialized: view
+
+    intermediate:
+      +schema: netflix_silver
+      +materialized: view
+
     marts:
+      +schema: netflix_gold
       +materialized: table

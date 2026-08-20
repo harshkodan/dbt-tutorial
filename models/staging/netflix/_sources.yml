@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: netflix_bronze
+    description: "Raw Netflix data loaded into the Databricks Bronze layer."
+
+    database: workspace
+    schema: netflix_bronze
+
+    tables:
+
+      - name: titles
+        description: "Raw Netflix title-level information."
+
+        columns:
+          - name: show_id
+            description: "Unique identifier for a Netflix title."
+            data_tests:
+              - not_null
+              - unique
+
+      - name: users
+        description: "Raw Netflix subscriber information."
+
+        columns:
+          - name: user_id
+            description: "Unique identifier for a Netflix user."
+            data_tests:
+              - not_null
+              - unique
+
+      - name: watch_history
+        description: "Raw Netflix viewing activity."
+
+        columns:
+          - name: watch_id
+            description: "Unique identifier for a viewing event."
+            data_tests:
+              - not_null
+              - unique
+
+          - name: user_id
+            description: "User who watched the title."
+
+          - name: show_id
+            description: "Netflix title watched by the user."
