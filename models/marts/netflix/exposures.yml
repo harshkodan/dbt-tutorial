@@ -1,0 +1,17 @@
+version: 2
+
+exposures:
+
+  - name: netflix_analytics_dashboard
+    type: dashboard
+    maturity: medium
+
+    description: >
+      Netflix analytics dashboard consuming curated user watch
+      activity and content classification models.
+
+    depends_on:
+      - ref('fct_user_watch_activity')
+
+    owner:
+      name: Data Engineering
