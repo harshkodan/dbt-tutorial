@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: netflix_bronze
+    database: workspace
+    schema: netflix_bronze
+
+    tables:
+      - name: titles
