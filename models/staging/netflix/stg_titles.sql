@@ -1,3 +1,4 @@
+-- Development target: {{ target.database }}.{{ target.schema }}
 with source_data as (
 
     select *

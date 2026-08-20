@@ -2,8 +2,18 @@ version: 2
 
 sources:
   - name: netflix_bronze
+    description: "Raw Netflix content data loaded into Databricks Bronze."
+
     database: workspace
     schema: netflix_bronze
 
     tables:
       - name: titles
+        description: "Raw Netflix title-level information including title, type, release year, rating, country, and date added."
+
+        columns:
+          - name: show_id
+            description: "Unique identifier for a Netflix title."
+            data_tests:
+              - not_null
+              - unique
