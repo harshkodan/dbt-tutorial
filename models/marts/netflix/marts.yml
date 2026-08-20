@@ -1,0 +1,35 @@
+version: 2
+
+models:
+
+  - name: fct_user_watch_activity
+    description: "Fact table containing Netflix user viewing activity."
+
+    columns:
+      - name: watch_id
+        description: "Unique viewing event."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        data_tests:
+          - not_null
+
+      - name: show_id
+        data_tests:
+          - not_null
+
+      - name: minutes_watched
+        data_tests:
+          - not_null
+
+  - name: dim_titles
+    description: "Dimension containing Netflix title attributes."
+
+    columns:
+      - name: show_id
+        description: "Unique Netflix title."
+        data_tests:
+          - not_null
+          - unique
